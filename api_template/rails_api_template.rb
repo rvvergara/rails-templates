@@ -62,7 +62,7 @@ def configure_database_yml
   insert_into_file dbyml, 
   "
   host: localhost
-  timeout: 5000
+  timeout: 5000",
   after: "encoding: unicode"
 end
 
