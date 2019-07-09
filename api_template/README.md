@@ -20,13 +20,13 @@ Add the `rails_api_template.rb` file in your `Home` folder.
 
 In your `.bashrc` file add the following alias:
 
-```
-rails_api_app = rails new -T -d postgresql --api ~m ~/rails_api_template.rb
+```bash
+alias rails_api_app = rails new -T -d postgresql --api ~m ~/rails_api_template.rb
 ```
 
 To create a new rails api project:
 
-```
+```bash
 $ rails_api_app <app name>
 ```
 
