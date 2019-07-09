@@ -37,4 +37,5 @@ Start generating json apis.
 1. Readily includes `devise` for authentication
 2. Test already configured for `rspec`
 3. Uses `pundit` for authorization
-4. Automatically creates the first commit and sets the initial git branch to `development`.
+4. Uses `jwt` (JSON Web Token) to generate encrypted hash to authenticate requests
+5. Automatically creates the first commit and sets the initial git branch to `development`.
