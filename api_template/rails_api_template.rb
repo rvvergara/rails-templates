@@ -62,7 +62,9 @@ def configure_database_yml
   insert_into_file dbyml, 
   "
   host: localhost
-  timeout: 5000",
+  timeout: 5000
+  username: rvvergara
+  password: password",
   after: "encoding: unicode"
 end
 
@@ -109,11 +111,17 @@ def use_pundit
  generate "pundit:install"
  
  application_controller = Dir.glob("app/controllers/application_controller.rb")[0]
+ rails_helper = Dir.glob("spec/rails_helper.rb")[0]
  
  insert_into_file application_controller,
  "
  include Pundit",
  after: "ActionController::API"
+
+ insert_into_file rails_helper,
+ "
+require 'pundit/rspec'
+ ", after: "require 'spec_helper'"
 end
 
 def create_jwt_service_file
