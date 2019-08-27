@@ -56,15 +56,15 @@ def add_configuration_to_application
 after: "config.api_only = true"
 end
 
-def configure_database_yml
+def configure_database_yml(username, password)
   dbyml = Dir.glob("config/database.yml")[0]
   gsub_file dbyml, /((#.*)?\s*(#.*))*/, ""
   insert_into_file dbyml, 
   "
   host: localhost
   timeout: 5000
-  username: rvvergara
-  password: password",
+  username: #{username}
+  password: #{password}",
   after: "encoding: unicode"
 end
 
@@ -83,9 +83,9 @@ def generate_enable_pgycrypto_migration
   run "rails db:migrate"
 end
 
-def make_uuid
+def make_uuid(arg8, arg9)
   add_configuration_to_application
-  configure_database_yml
+  configure_database_yml(arg8, arg9)
   setup_db
   generate_enable_pgycrypto_migration
 end
@@ -153,7 +153,7 @@ remove_comments_from_gemfile
 add_gems
 
 after_bundle do
-  make_uuid
+  make_uuid(ARGV[8], ARGV[9])
   use_devise
   use_rspec
   create_jwt_service_file

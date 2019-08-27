@@ -27,7 +27,8 @@ alias rails_api_app = rails new -T -d postgresql --api ~m ~/rails_api_template.r
 To create a new rails api project:
 
 ```bash
-$ rails_api_app <app name>
+$ rails_api_app <app name> <local postgres username> <local postgres password>
+# make sure to type in the exact same sequence
 ```
 
 Start generating json apis.
