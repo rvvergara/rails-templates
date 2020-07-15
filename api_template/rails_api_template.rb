@@ -2,8 +2,8 @@ def add_gems
   gemfile = Dir.glob("Gemfile")[0]
 
   insert_into_file gemfile,
-  "\ngem 'devise'\ngem 'pundit'\ngem 'jwt'\ngem 'jbuilder', '~> 2.5'\ngem 'rack-cors'",
-  after: "gem 'bootsnap', '>= 1.1.0', require: false"
+  "\ngem 'devise'\ngem 'pundit'\ngem 'jwt'\ngem 'jbuilder', '~> 2.7'\ngem 'rack-cors'",
+  after: "gem 'bootsnap', '>= 1.4.2', require: false"
 
   insert_into_file gemfile,
   "
